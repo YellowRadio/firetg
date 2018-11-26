@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Inicial"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txtHello"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BEM VINDO!"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/txtFalha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="FAÇA LOGIN!"
+        android:textSize="36sp" />
+
+    <Button
+        android:id="@+id/btnTentarNov"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tentar Novamente"
+        android:visibility="invisible" />
+
+
+</LinearLayout>
