@@ -5,3 +5,4 @@ Projeto de Trabalho de Graduacao
 
 
 https://firebase.google.com/docs/firestore/quickstart?hl=pt-br
+https://developers.facebook.com/docs/facebook-login/android
