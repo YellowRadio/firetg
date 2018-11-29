@@ -30,6 +30,7 @@ public class Principal extends AppCompatActivity {
         jbtnLogout=findViewById(R.id.btnLogout);
     }
     private void standby(){
+
         jbtnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
