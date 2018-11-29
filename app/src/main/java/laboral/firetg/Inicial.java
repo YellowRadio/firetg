@@ -28,6 +28,7 @@ public class Inicial extends AppCompatActivity {
     FirebaseUser usuario_firebase=null;
     int RC_SIGN_IN=1;
     List<AuthUI.IdpConfig> providers = Arrays.asList(
+            new AuthUI.IdpConfig.FacebookBuilder().build(),
             new AuthUI.IdpConfig.GoogleBuilder().build()
     );
 
@@ -66,7 +67,7 @@ public class Inicial extends AppCompatActivity {
         jbtnTentarNov = findViewById(R.id.btnTentarNov);
         jbtnTentarNov.setEnabled(false);
         jbtnTentarNov.setVisibility(View.INVISIBLE);
-        startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder()/*.setIsSmartLockEnabled(false)*/.setAvailableProviders(providers).build(),RC_SIGN_IN);
+        startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder().setIsSmartLockEnabled(false,true).setAvailableProviders(providers).build(),RC_SIGN_IN);
     }
 
     private void standby(){
