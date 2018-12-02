@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+
 import laboral.firetg.R;
 import laboral.firetg.model.aluno;
 
@@ -46,4 +47,5 @@ public class AlunoAdapter extends ArrayAdapter<aluno> {
 
         return convertView;
     }
+
 }

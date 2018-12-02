@@ -50,6 +50,7 @@ public class Cadastrar extends AppCompatActivity {
             public void onClick(View v) {
                 a.setNome(jedtNome.getText().toString());
                 a.setObservacao(jedtObservacao.getText().toString());
+                Toast.makeText(getApplicationContext(),a.getNome(),Toast.LENGTH_SHORT).show();
                 try {
                     ca.setAluno(a);
                     if(ca.registra()){

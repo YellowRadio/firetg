@@ -38,18 +38,19 @@ public class ControlAluno {
         return alu;
     }
 
-    public void setAluno(aluno alu) throws AlunoException {
+    public void setAluno(aluno alu){
         this.alu = alu;
-        verifica_nome();
     }
 
     private void verifica_nome() throws AlunoException {
-        if(alu.getNome()==""){
+        if(alu.getNome().equals("")){
             throw new AlunoException(1);
         }
     }
 
-    public boolean registra(){
+    public boolean registra() throws AlunoException{
+
+        verifica_nome();
         database.collection("alunos").add(alu).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
             @Override
             public void onSuccess(DocumentReference documentReference) {
@@ -85,7 +86,7 @@ public class ControlAluno {
     public List<aluno> busca(String nome){
 
         lista_alunos= new ArrayList<aluno>();
-        if(nome==""){
+        if(nome.equals("")){
             database.collection("alunos").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
