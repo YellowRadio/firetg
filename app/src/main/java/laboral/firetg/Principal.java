@@ -15,7 +15,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 public class Principal extends AppCompatActivity {
-    private Button jbtnLogout;
+    private Button jbtnLogout, jbtnCadastrar, jbtnPesquisar, jbtnChamada;
     private TextView jtxtHello;
 
     @Override
@@ -24,12 +24,36 @@ public class Principal extends AppCompatActivity {
         setContentView(R.layout.activity_principal);
         inicializa_componentes();
         standby();
+
     }
 
     private void inicializa_componentes(){
         jbtnLogout=findViewById(R.id.btnLogout);
+        jbtnCadastrar=findViewById(R.id.btnCadastrar);
+        jbtnPesquisar=findViewById(R.id.btnPesquisar);
+        jbtnChamada=findViewById(R.id.btnEfetuarChamada);
     }
     private void standby(){
+        jbtnCadastrar.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent it = new Intent(getApplicationContext(), Cadastrar.class);
+                startActivity(it);
+            }
+        });
+
+        jbtnPesquisar.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent it = new Intent(getApplicationContext(), Pesquisar.class);
+                startActivity(it);
+            }
+        });
+        jbtnChamada.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent it = new Intent(getApplicationContext(), Chamada.class);
+                startActivity(it);
+            }
+        });
+
         jbtnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,4 +69,7 @@ public class Principal extends AppCompatActivity {
             }
         });
     }
+
+
+
 }
