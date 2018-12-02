@@ -1,9 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Pesquisar">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/txtPesquisar"
+        android:layout_width="281dp"
+        android:layout_height="21dp"
+        android:layout_alignStart="@+id/btnPesquisar"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="11dp"
+        android:text="Pesquisar"
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <ListView
+        android:id="@+id/listAluno"
+        android:layout_width="300dp"
+        android:layout_height="333dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="33dp"
+        android:layout_marginLeft="33dp"
+        android:layout_marginTop="158dp"
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="140dp" />
+
+    <EditText
+        android:id="@+id/edtPesquisar"
+        android:layout_width="296dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/btnCancelar"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="49dp"
+        android:layout_marginEnd="-7dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="49dp" />
+
+    <Button
+        android:id="@+id/btnPesquisar"
+        android:layout_width="115dp"
+        android:layout_height="38dp"
+        android:layout_alignTop="@+id/btnCancelar"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="0dp"
+        android:text="Pesquisar"
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="84dp" />
+
+    <Button
+        android:id="@+id/btnCancelar"
+        android:layout_width="115dp"
+        android:layout_height="38dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="58dp"
+        android:text="Cancelar"
+        tools:layout_editor_absoluteX="220dp"
+        tools:layout_editor_absoluteY="84dp" />
+</RelativeLayout>
