@@ -11,8 +11,12 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import laboral.firetg.control.exc.AlunoException;
 import laboral.firetg.model.aluno;
@@ -21,6 +25,7 @@ public class ControlAluno {
     private FirebaseFirestore database;
     private aluno alu;
     private boolean status;
+    private List<aluno> lista_alunos;
     //private DocumentReference documento; //se for precisar do Id depois que inserir
 
 
@@ -34,17 +39,13 @@ public class ControlAluno {
     }
 
     public void setAluno(aluno alu) throws AlunoException {
-        verifica_nome();
         this.alu = alu;
-    }
-
-    public void setDatabase(FirebaseFirestore database) {
-        this.database = database;
+        verifica_nome();
     }
 
     private void verifica_nome() throws AlunoException {
         if(alu.getNome()==""){
-            throw new AlunoException("O Nome do aluno não pode estar vazio");
+            throw new AlunoException(1);
         }
     }
 
@@ -81,5 +82,40 @@ public class ControlAluno {
         return (status);//se funcionou status;
     }
 
+    public List<aluno> busca(String nome){
+
+        lista_alunos= new ArrayList<aluno>();
+        if(nome==""){
+            database.collection("alunos").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    if(task.isSuccessful()){
+                        for(QueryDocumentSnapshot snap : task.getResult()){
+                            Log.d("aluno",snap.getId() + "=>"+snap.getData());
+                            lista_alunos.add(snap.toObject(aluno.class));
+                        }
+                    }else{
+                        Log.d("aluno", "Error getting documents: ", task.getException());
+
+                    }
+                }
+            });
+        }else{
+            database.collection("alunos").whereEqualTo("nome", nome).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                    if (task.isSuccessful()) {
+                        for (QueryDocumentSnapshot snap : task.getResult()) {
+                            Log.d("aluno", snap.getId() + "=>" + snap.getData());
+                            lista_alunos.add(snap.toObject(aluno.class));
+                        }
+                    } else {
+                        Log.d("aluno", "Error getting documents: ", task.getException());
+                    }
+                }
+            });
+        }
+        return lista_alunos;
+    }
 
 }

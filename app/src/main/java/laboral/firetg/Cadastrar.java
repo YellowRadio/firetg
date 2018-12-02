@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -51,8 +52,11 @@ public class Cadastrar extends AppCompatActivity {
                 a.setObservacao(jedtObservacao.getText().toString());
                 try {
                     ca.setAluno(a);
-                    ca.registra();
+                    if(ca.registra()){
+                        Toast.makeText(getApplicationContext(),"Cadastrado com sucesso!",Toast.LENGTH_SHORT).show();
+                    }
                 } catch (AlunoException e) {
+                    Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
                     e.printStackTrace();
                 }
             }
