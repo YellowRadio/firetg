@@ -17,14 +17,14 @@ import java.io.IOException;
 import laboral.firetg.control.exc.AlunoException;
 import laboral.firetg.model.aluno;
 
-public class CadastrarAluno {
+public class ControlAluno {
     private FirebaseFirestore database;
     private aluno alu;
     private boolean status;
     //private DocumentReference documento; //se for precisar do Id depois que inserir
 
 
-    public CadastrarAluno(FirebaseFirestore database){
+    public ControlAluno(FirebaseFirestore database){
         this.database = database;
         status=false;
     }
