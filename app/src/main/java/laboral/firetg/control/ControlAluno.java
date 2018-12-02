@@ -24,8 +24,8 @@ public class ControlAluno {
     //private DocumentReference documento; //se for precisar do Id depois que inserir
 
 
-    public ControlAluno(FirebaseFirestore database){
-        this.database = database;
+    public ControlAluno(){
+        this.database = FirebaseFirestore.getInstance();
         status=false;
     }
 
@@ -34,12 +34,8 @@ public class ControlAluno {
     }
 
     public void setAluno(aluno alu) throws AlunoException {
-        this.alu = alu;
         verifica_nome();
-    }
-
-    public FirebaseFirestore getDatabase() {
-        return database;
+        this.alu = alu;
     }
 
     public void setDatabase(FirebaseFirestore database) {
@@ -47,7 +43,7 @@ public class ControlAluno {
     }
 
     private void verifica_nome() throws AlunoException {
-        if(alu.getNome()==null){
+        if(alu.getNome()==""){
             throw new AlunoException("O Nome do aluno não pode estar vazio");
         }
     }

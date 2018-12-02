@@ -18,7 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Principal"></activity>
+        <activity android:name=".Principal" />
+        <activity android:name=".Cadastrar" />
+        <activity android:name=".Pesquisar" />
+        <activity android:name=".Chamada"></activity>
     </application>
 
 </manifest>
