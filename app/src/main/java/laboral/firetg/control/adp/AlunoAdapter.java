@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -37,6 +38,8 @@ public class AlunoAdapter extends ArrayAdapter<aluno> {
 
         TextView jtxtObs = (TextView) convertView.findViewById(R.id.txtObs);
 
+     //   Button jbtnPresente = (Button) convertView.findViewById(R.id.btnpresente);
+     //   Button jbtnFalta = (Button) convertView.findViewById(R.id.btnfalta);
         // Populate the data into the template view using the data object
 
         jtxtNome.setText(alu.getNome());

@@ -1,9 +1,13 @@
 package laboral.firetg;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -36,6 +40,8 @@ public class Pesquisar extends AppCompatActivity {
         jedtPesquisar=findViewById(R.id.edtPesquisar);
         jlistAluno=findViewById(R.id.listAluno);
 
+
+
         ca=new ControlAluno();
     }
     private void standby() {
@@ -52,7 +58,17 @@ public class Pesquisar extends AppCompatActivity {
                 lista_alunos=(ArrayList<aluno>)ca.busca(jedtPesquisar.getText().toString());
                 adaptador = new AlunoAdapter(getApplicationContext(),lista_alunos);
                 jlistAluno.setAdapter(adaptador);
+
+                hideSoftKeyboard();
             }
         });
+    }
+
+    // oculta o teclado
+    public void hideSoftKeyboard() {
+        if(getCurrentFocus()!=null) {
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        }
     }
 }
